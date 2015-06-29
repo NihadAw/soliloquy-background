@@ -1,17 +1,17 @@
 <?php
 /*
 Plugin Name: Soliloquy Background
-Plugin URI: http://dustyf.com/
+Plugin URI: http://zarafy.com/
 Description: Output slider as background images
-Author: Dustin Filippini
-Author URI: http://dustyf.com/
+Author: Nihad Aw, Based on the work of Dustin Filippini
+Author URI: http://zarafy.com/
 Version: 0.1
 License: GNU General Public License v2.0 or later
 License URI: http://www.opensource.org/licenses/gpl-license.php
 */
 
 /*
-	Copyright 2013	 Dustin Filippini	 (email : dusty@dustyf.com)
+	Copyright 2013	 Dustin Filippini / Nihad Aw	 (email : dusty@dustyf.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
@@ -27,13 +27,13 @@ License URI: http://www.opensource.org/licenses/gpl-license.php
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-add_filter('tgmsp_slider_item_style', 'add_soliloquy_bg_image', 10, 4);
+add_filter('soliloquy_output_item_style', 'add_soliloquy_bg_image', 10, 4);
 function add_soliloquy_bg_image($style, $id, $image, $i) {
 	$style = 'background-image:url(' . $image['src'] . ');';
 	return $style;
 }
 
-add_filter('tgmsp_image_output', 'remove_soliloquy_slide_image', 10, 5);
+add_filter('soliloquy_output_image_slide', 'remove_soliloquy_slide_image', 10, 5);
 function remove_soliloquy_slide_image($imagehtml, $id, $image, $alt, $title) {
 	$imagehtml = '';
 	return $imagehtml;
